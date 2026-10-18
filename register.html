@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>فرم متقاضیان | آریا طب</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: #f0f5fb;
+            color: #183153;
+            line-height: 1.9;
+        }
+
+        header {
+            background: #102b4e;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #45c5e8;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #45c5e8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #102b4e, #176b91);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(27px, 5vw, 38px);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #e0edf7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px #102b4e12;
+        }
+
+        .form-card h2 {
+            color: #12618b;
+            margin-bottom: 8px;
+        }
+
+        .intro {
+            color: #66788c;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d6e1ec;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            background: #fbfdff;
+            color: #183153;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1b9bc4;
+            box-shadow: 0 0 0 3px #1b9bc41a;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .skills label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: #f0f8fc;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-weight: 400;
+        }
+
+        .skills input {
+            width: auto;
+        }
+
+        .agreement {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 25px;
+            font-size: 13px;
+        }
+
+        .agreement input {
+            width: auto;
+            margin-top: 8px;
+        }button {
+            border: none;
+            background: #147da5;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #102b4e;
+        }
+
+        #message {
+            display: none;
+            background: #e6f8ed;
+            color: #176c3b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            background: #102b4e;
+            color: #d9e8f3;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .form-card {
+                padding: 22px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">آریا <span>طب</span></div>
+
+    <nav>
+        <a href="index.html">دعوت‌نامه</a>
+        <a href="company.html">معرفی شرکت</a>
+        <a href="register.html">ثبت اطلاعات</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>فرم اطلاعات متقاضیان</h1>
+
+    <p>
+        اطلاعات خود را وارد کنید و آمادگی خود را برای شرکت در مصاحبه اعلام کنید.
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="form-card">
+
+        <h2>فرم ثبت‌نام مصاحبه</h2>
+
+        <p class="intro">
+            فیلدهای ستاره‌دار الزامی هستند.
+            اطلاعات واردشده در این نسخه آزمایشی ذخیره نمی‌شوند.
+        </p>
+
+        <form id="applicationForm">
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label for="fullname">نام و نام خانوادگی *</label>
+
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="نام کامل خود را وارد کنید"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="phone">شماره تماس *</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="مثلاً 09123456789"
+                        pattern="09[0-9]{9}"
+                        title="شماره موبایل باید با 09 شروع شود و 11 رقم باشد."
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="email">آدرس ایمیل</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com"
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="education">وضعیت تحصیلی *</label>
+
+                    <select id="education" name="education" required>
+                        <option value="">انتخاب کنید</option>
+                        <option>دانشجوی کارشناسی</option>
+                        <option>فارغ‌التحصیل کارشناسی</option>
+                        <option>دانشجوی کارشناسی ارشد</option>
+                        <option>فارغ‌التحصیل کارشناسی ارشد</option>
+                        <option>سایر</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="field">رشته یا گرایش تحصیلی *</label><select id="field" name="field" required>
+                        <option value="">انتخاب کنید</option>
+                        <option>بیومتریال</option>
+                        <option>بیوالکتریک</option>
+                        <option>بیومکانیک</option>
+                        <option>مهندسی پزشکی عمومی</option>
+                        <option>سایر رشته‌های مرتبط</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="experience">سابقه کاری</label>
+
+                    <select id="experience" name="experience">
+                        <option value="">انتخاب کنید</option>
+                        <option>بدون سابقه کار</option>
+                        <option>کمتر از یک سال</option>
+                        <option>یک تا سه سال</option>
+                        <option>بیشتر از سه سال</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="interviewDate">تاریخ پیشنهادی مصاحبه *</label>
+
+                    <input
+                        type="date"
+                        id="interviewDate"
+                        name="interviewDate"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="interviewTime">زمان پیشنهادی *</label>
+
+                    <select id="interviewTime" name="interviewTime" required>
+                        <option value="">انتخاب کنید</option>
+                        <option>۹ تا ۱۰ صبح</option>
+                        <option>۱۰ تا ۱۲ ظهر</option>
+                        <option>۱۲ تا ۱۴ ظهر</option>
+                    </select>
+                </div>
+
+                <div class="field full">
+                    <label>مهارت‌های تخصصی شما</label>
+
+                    <div class="skills">
+
+                        <label>
+                            <input type="checkbox" name="skills" value="تجهیزات پزشکی">
+                            تجهیزات پزشکی
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="skills" value="کنترل کیفیت">
+                            کنترل کیفیت
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="skills" value="بیومتریال">
+                            بیومتریال
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="skills" value="نرم‌افزارهای مهندسی">
+                            نرم‌افزارهای مهندسی
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="skills" value="مستندسازی فنی">
+                            مستندسازی فنی
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="field full">
+                    <label for="resume">معرفی کوتاه یا خلاصه رزومه</label>
+
+                    <textarea
+                        id="resume"
+                        name="resume"
+                        placeholder="درباره مهارت‌ها، تجربه‌ها و علاقه‌مندی‌های خود بنویسید..."
+                    ></textarea>
+                </div>
+
+            </div>
+
+            <label class="agreement">
+                <input type="checkbox" id="agreement" required>
+
+                <span>
+                    تأیید می‌کنم اطلاعات واردشده صحیح است و از آزمایشی بودن
+                    این فرم و ذخیره‌نشدن اطلاعات در نسخه فعلی اطلاع دارم.
+                </span>
+            </label>
+
+            <button type="submit">
+                ثبت اطلاعات و اعلام آمادگی
+            </button>
+
+            <div id="message" role="status" aria-live="polite"></div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>شرکت فرضی تجهیزات پزشکی آریا طب</p>
+    <p>واحد منابع انسانی | فرم نمونه استخدام</p>
+</footer><script>
+    const form = document.getElementById("applicationForm");
+    const message = document.getElementById("message");
+
+    // جلوگیری از انتخاب تاریخ گذشته
+    const dateInput = document.getElementById("interviewDate");
+
+    const today = new Date();
+    const localDate = new Date(
+        today.getTime() - today.getTimezoneOffset() * 60000
+    ).toISOString().split("T")[0];
+
+    dateInput.min = localDate;
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+            return;
+        }
+
+        message.style.display = "block";
+
+        message.textContent =
+            "فرم شما در این نمایش آزمایشی بررسی شد؛ " +
+            "اما اطلاعات ذخیره یا برای شرکت ارسال نشده است. " +
+            "برای ثبت واقعی باید فرم به یک سرویس ارسال اطلاعات متصل شود.";
+
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    });
+</script>
+
+</body>
+</html>
